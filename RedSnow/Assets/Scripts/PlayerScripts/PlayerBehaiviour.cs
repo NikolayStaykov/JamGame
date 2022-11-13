@@ -22,14 +22,14 @@ public class PlayerBehaiviour : MonoBehaviour
     {
         try
         {
-            forwardKey = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ForwardKey", "W"));
+            forwardKey = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("moveUpKey", "W"));
         } catch (Exception)
         {
             forwardKey = KeyCode.W;
         }
         try
         {
-            backwardsKey = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("BackwardsKey", "S"));
+            backwardsKey = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("moveDownKey", "S"));
         }
         catch (Exception)
         {
@@ -37,7 +37,7 @@ public class PlayerBehaiviour : MonoBehaviour
         }
         try
         {
-            leftKey = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("LeftKey", "A"));
+            leftKey = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("moveLeftKey", "A"));
         }
         catch (Exception)
         {
@@ -45,7 +45,7 @@ public class PlayerBehaiviour : MonoBehaviour
         }
         try
         {
-            rightKey = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("RightKey", "D"));
+            rightKey = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("moveRightKey", "D"));
         }
         catch (Exception)
         {
@@ -53,11 +53,27 @@ public class PlayerBehaiviour : MonoBehaviour
         }
         try
         {
-            dashKey = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("DashKey", "Space"));
+            dashKey = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("dashKey", "Space"));
         } 
         catch(Exception)
         {
             dashKey = KeyCode.Space;
+        }
+        try
+        {
+            leftWeaponKey = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("fireLeftkey", "Mouse0"));
+        }
+        catch
+        {
+            leftWeaponKey = KeyCode.Mouse0;
+        }
+        try
+        {
+            rightWeaponKey = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("fireRightKey", "Mouse1"));
+        }
+        catch
+        {
+            rightWeaponKey = KeyCode.Mouse1;
         }
     }
 
@@ -83,7 +99,7 @@ public class PlayerBehaiviour : MonoBehaviour
         if (Input.GetKey(dashKey) && dashCooldown)
         {
             movementAllowed = false;
-            this.gameObject.GetComponent<Rigidbody>().AddForce(toMove * 1000, ForceMode.Impulse);
+            this.gameObject.GetComponent<Rigidbody>().AddForce(toMove * 650, ForceMode.Impulse);
             dashCooldown = false;
             dashCooldownReset();
         }
@@ -93,14 +109,22 @@ public class PlayerBehaiviour : MonoBehaviour
         }
         toMove.x = 0;
         toMove.z = 0;
+        if (Input.GetKeyDown(leftWeaponKey))
+        {
+            Debug.Log("Fire Left");
+        }
+        if (Input.GetKeyDown(rightWeaponKey))
+        {
+            Debug.Log("Fire Right");
+        }
     }
 
     private async void dashCooldownReset()
     {
-        await Task.Delay(200);
+        await Task.Delay(150);
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         movementAllowed = true;
-        await Task.Delay(2800);
+        await Task.Delay(2850);
         dashCooldown = true;
     }
 }
