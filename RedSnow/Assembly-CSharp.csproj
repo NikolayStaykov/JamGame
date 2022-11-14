@@ -59,7 +59,7 @@
     <Compile Include="Assets\Scripts\UI Scripts\ControlBinding.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\FollowMouse.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\MainMenuManager.cs" />
-    <Compile Include="Assets\PistolScript.cs" />
+    <Compile Include="Assets\Scripts\WeaponScripts\PistolScript.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerBehaiviour.cs" />
     <Compile Include="Assets\Scripts\WeaponScripts\IWeapon.cs" />
   </ItemGroup>
