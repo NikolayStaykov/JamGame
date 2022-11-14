@@ -309,6 +309,14 @@
 "Assets/Scripts/PlayerScripts/PlayerBehaiviour.cs"
 "Assets/Scripts/UI Scripts/ControlBinding.cs"
 "Assets/Scripts/UI Scripts/MainMenuManager.cs"
+"Assets/Scripts/WeaponScripts/IWeapon.cs"
+"Assets/Scripts/WeaponScripts/MachineGunScript.cs"
+"Assets/Scripts/WeaponScripts/PistolScript.cs"
+"Assets/Scripts/WeaponScripts/SawedOffShotGun.cs"
+"Assets/Scripts/WeaponScripts/ShotGunScript.cs"
+"Assets/Scripts/WeaponScripts/SnowBallScript.cs"
+"Assets/Scripts/WeaponScripts/Weapon.cs"
+"Assets/Scripts/WeaponScripts/WeaponManager.cs"
 -langversion:9.0
 
 /deterministic

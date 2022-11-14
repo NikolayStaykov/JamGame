@@ -57,17 +57,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI Scripts\ControlBinding.cs" />
+    <Compile Include="Assets\Scripts\WeaponScripts\MachineGunScript.cs" />
+    <Compile Include="Assets\Scripts\WeaponScripts\WeaponManager.cs" />
+    <Compile Include="Assets\Scripts\WeaponScripts\SawedOffShotGun.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\FollowMouse.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\MainMenuManager.cs" />
     <Compile Include="Assets\Scripts\WeaponScripts\PistolScript.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerBehaiviour.cs" />
+    <Compile Include="Assets\Scripts\WeaponScripts\ShotGunScript.cs" />
+    <Compile Include="Assets\Scripts\WeaponScripts\SnowBallScript.cs" />
     <Compile Include="Assets\Scripts\WeaponScripts\IWeapon.cs" />
-    <Compile Include="Assets\ShotGunScript.cs" />
-    <Compile Include="Assets\Weapon.cs" />
-    <Compile Include="Assets\WeaponManager.cs" />
-    <Compile Include="Assets\SnowBallScript.cs" />
-    <Compile Include="Assets\SawedOffShotGun.cs" />
-    <Compile Include="Assets\MachineGunScript.cs" />
+    <Compile Include="Assets\Scripts\WeaponScripts\Weapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
