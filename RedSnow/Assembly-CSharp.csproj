@@ -62,6 +62,12 @@
     <Compile Include="Assets\Scripts\WeaponScripts\PistolScript.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerBehaiviour.cs" />
     <Compile Include="Assets\Scripts\WeaponScripts\IWeapon.cs" />
+    <Compile Include="Assets\ShotGunScript.cs" />
+    <Compile Include="Assets\Weapon.cs" />
+    <Compile Include="Assets\WeaponManager.cs" />
+    <Compile Include="Assets\SnowBallScript.cs" />
+    <Compile Include="Assets\SawedOffShotGun.cs" />
+    <Compile Include="Assets\MachineGunScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

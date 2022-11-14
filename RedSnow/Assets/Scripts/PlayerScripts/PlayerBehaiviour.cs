@@ -18,6 +18,9 @@ public class PlayerBehaiviour : MonoBehaviour
     //weapon controls
     private KeyCode leftWeaponKey;
     private KeyCode rightWeaponKey;
+    // weapons 
+    private Weapon leftWeapon;
+    private Weapon rightWeapon;
     void Start()
     {
         try
@@ -109,13 +112,13 @@ public class PlayerBehaiviour : MonoBehaviour
         }
         toMove.x = 0;
         toMove.z = 0;
-        if (Input.GetKeyDown(leftWeaponKey))
+        if (Input.GetKey(leftWeaponKey))
         {
-            Debug.Log("Fire Left");
+            leftWeapon.fireWeapon();
         }
-        if (Input.GetKeyDown(rightWeaponKey))
+        if (Input.GetKey(rightWeaponKey))
         {
-            Debug.Log("Fire Right");
+            rightWeapon.fireWeapon();
         }
     }
 
@@ -126,5 +129,15 @@ public class PlayerBehaiviour : MonoBehaviour
         movementAllowed = true;
         await Task.Delay(2850);
         dashCooldown = true;
+    }
+
+    public void setLeftWeapon(Weapon weapon)
+    {
+        this.leftWeapon = weapon;
+    }
+
+    public void setRightWeapon(Weapon weapon)
+    {
+        this.rightWeapon = weapon;
     }
 }

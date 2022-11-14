@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEditor.SearchService;
 using UnityEngine;
 
-public abstract class IWeapon : MonoBehaviour
+public abstract class IWeapon : MonoBehaviour, Weapon
 {
+    //targetting laser 
     public Transform laserDirection;
     public Transform laserOrigin;
-    private LineRenderer laserSight;
+    public LineRenderer laserSight;
     private RaycastHit lasersightHit;
-    void Awake()
-    {
-        laserSight = this.gameObject.GetComponentInChildren<LineRenderer>();
-    }
+    //fire functionality
+    protected bool fireAllowed = true;
+    protected float fireRate;
 
     public void renderLaser()
     {
@@ -25,9 +26,22 @@ public abstract class IWeapon : MonoBehaviour
         {
             laserSight.SetPosition(1, laserDirection.position);
         }
-        Debug.Log("Origin"+laserOrigin.position.ToString());
-        Debug.Log("ray hit"+lasersightHit.point.ToString());
-        Debug.Log("forward"+laserOrigin.forward.ToString());
+    }
+    public void setAsWeapon(string hand)
+    {
+        if (hand == "left")
+        {
+            GameObject.FindObjectOfType<PlayerBehaiviour>().setLeftWeapon(this);
+        }
+        else
+        {
+            GameObject.FindObjectOfType<PlayerBehaiviour>().setRightWeapon(this);
+        }
+    }
+    protected async void resetFireAllowed()
+    {
+        await Task.Delay((int)(1000 / fireRate));
+        fireAllowed = true;
     }
 
     public abstract void fireWeapon();

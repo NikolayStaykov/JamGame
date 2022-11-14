@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
-public class PistolScript : IWeapon
+public class PistolScript : IWeapon, Weapon
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        fireRate = 1f;
     }
 
     // Update is called once per frame
@@ -18,6 +19,12 @@ public class PistolScript : IWeapon
 
     public override void fireWeapon()
     {
-        // to do fire gun 
+        if(fireAllowed) 
+        {
+            fireAllowed = false;
+            GameObject bullet = Instantiate(Resources.Load<GameObject>($"Weapons/SnowBall"), laserOrigin.position + laserOrigin.forward, laserOrigin.rotation);
+            bullet.GetComponent<Rigidbody>().AddForce(this.transform.forward * 100, ForceMode.Impulse);
+            resetFireAllowed();
+        }
     }
 }
